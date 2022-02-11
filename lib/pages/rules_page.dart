@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mas_404/widgets/widgets.dart';
+import '/widgets/widgets.dart';
 
 class RulesPage extends StatelessWidget {
   const RulesPage({Key? key}) : super(key: key);

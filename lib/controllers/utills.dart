@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:mas_404/data/game_status.dart';
+import '/data/game_status.dart';
 import 'package:math_expressions/math_expressions.dart';
 
 int convertExpression(List<String> pattern) {
