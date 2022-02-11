@@ -25,7 +25,7 @@ jobs:
         - name: Deploy Firebase Hosting
           uses: w9jds/firebase-action@master
           with:
-            args: deploy --only hosting:insion
+            args: deploy --only hosting:team-mas404
           env:
             FIREBASE_TOKEN: ${{ secrets.TEAM404_FIREBASE_TOKEN }}
             PROJECT_PATH: ./
