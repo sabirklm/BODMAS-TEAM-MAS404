@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import '/widgets/widgets.dart';
 
 class RulesPage extends StatelessWidget {
-  const RulesPage({Key? key}) : super(key: key);
+  final void Function()? onPressed;
+  const RulesPage({
+    Key? key,
+    this.onPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,22 +17,23 @@ class RulesPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.fromLTRB(
-            width * 0.01,
+            width * 0.051,
             width * 0.001,
             width * 0.01,
             width * 0.01,
           ),
-          padding: const EdgeInsets.all(16),
+          //padding: const EdgeInsets.only(left: 16),
           child: Column(
             children: [
               Align(
                 alignment: Alignment.topRight,
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.close,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 18.0),
+                  child: IconButton(
+                    onPressed: onPressed,
+                    icon: const Icon(
+                      Icons.close,
+                    ),
                   ),
                 ),
               ),

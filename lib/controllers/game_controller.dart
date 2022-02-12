@@ -6,7 +6,9 @@ import 'package:get/get.dart';
 class GameController extends GetxController {
   var isGameOwn = false.obs;
   var isDarkTheme = false.obs;
+  var showRules = true.obs;
   var randomPattern = <String>["5", "×", "2", "+", "9"].obs;
+  var hardMode = false.obs;
   var result = 0.obs;
   var userPattern = <String?>[null, null, null, null, null].obs;
   var roun1UserPattern = <String?>[null, null, null, null, null].obs;
@@ -42,26 +44,6 @@ class GameController extends GetxController {
     Colors.grey
   ].obs;
   var round = 1.obs;
-
-  int isPartOfPattern(List<String> pattern, List<String?> myStrings) {
-    for (int i = 0; i < pattern.length; i++) {
-      if (myStrings[i] == null) return -1;
-      if (pattern[i] == myStrings[i]) {
-        return i;
-      }
-    }
-    return -1;
-  }
-
-  bool isCorrectPosition(String myString1, String myString2) {
-    return myString1 == myString2;
-  }
-
-  Color selectColor(bool isCorrectPosition, bool isPartOfPattern) {
-    if (isCorrectPosition) return Colors.green;
-    if (isPartOfPattern) return Colors.orange;
-    return Colors.red;
-  }
 
   enterNumber(int currentRound, String userInput) {
     if (currentRound == 1) {
@@ -151,11 +133,16 @@ class GameController extends GetxController {
       }
       for (int i = 0; i < publicPattern.length; i++) {
         for (int j = 0; j < gamePattern.length; j++) {
-          if (publicPattern[i] == gamePattern[j] &&
-              i != j &&
-              !isOnceCalculated[j]) {
+          if (publicPattern[i] == gamePattern[j] && isOnceCalculated[j]) {
             round1Color[i] = Colors.orange;
+          } else if (publicPattern[i] == gamePattern[j] && i == j) {
+            round1Color[i] = Colors.green;
           }
+        }
+      }
+      for (int i = 0; i < gamePattern.length; i++) {
+        if (gamePattern[i] == publicPattern[i]) {
+          round1Color[i] = Colors.green;
         }
       }
     } else if (gameRound == 2) {
@@ -169,11 +156,16 @@ class GameController extends GetxController {
       }
       for (int i = 0; i < publicPattern.length; i++) {
         for (int j = 0; j < gamePattern.length; j++) {
-          if (publicPattern[i] == gamePattern[j] &&
-              i != j &&
-              !isOnceCalculated[j]) {
+          if (publicPattern[i] == gamePattern[j] && !isOnceCalculated[j]) {
             round2Color[i] = Colors.orange;
+          } else if (publicPattern[i] == gamePattern[j] && i == j) {
+            round2Color[i] = Colors.green;
           }
+        }
+      }
+      for (int i = 0; i < gamePattern.length; i++) {
+        if (gamePattern[i] == publicPattern[i]) {
+          round2Color[i] = Colors.green;
         }
       }
     } else if (gameRound == 3) {
@@ -187,11 +179,16 @@ class GameController extends GetxController {
       }
       for (int i = 0; i < publicPattern.length; i++) {
         for (int j = 0; j < gamePattern.length; j++) {
-          if (publicPattern[i] == gamePattern[j] &&
-              i != j &&
-              !isOnceCalculated[j]) {
+          if (publicPattern[i] == gamePattern[j] && !isOnceCalculated[j]) {
             round3Color[i] = Colors.orange;
+          } else if (publicPattern[i] == gamePattern[j] && i == j) {
+            round3Color[i] = Colors.green;
           }
+        }
+      }
+      for (int i = 0; i < gamePattern.length; i++) {
+        if (gamePattern[i] == publicPattern[i]) {
+          round3Color[i] = Colors.green;
         }
       }
     }
@@ -206,6 +203,50 @@ class GameController extends GetxController {
 
   @override
   void onInit() {
+    randomizedEquation();
+    super.onInit();
+  }
+
+  playAgain() {
+    isGameOwn.value = false;
+    userPattern.value = [null, null, null, null, null];
+    roun1UserPattern.value = [null, null, null, null, null];
+    roun2UserPattern.value = [null, null, null, null, null];
+    roun3UserPattern.value = [null, null, null, null, null];
+    roun4UserPattern.value = [null, null, null, null, null];
+    round.value = 1;
+    round1Color.value = [
+      Colors.grey,
+      Colors.grey,
+      Colors.grey,
+      Colors.grey,
+      Colors.grey
+    ];
+    round2Color.value = <Color>[
+      Colors.grey,
+      Colors.grey,
+      Colors.grey,
+      Colors.grey,
+      Colors.grey
+    ];
+    round3Color.value = [
+      Colors.grey,
+      Colors.grey,
+      Colors.grey,
+      Colors.grey,
+      Colors.grey
+    ];
+    round4Color.value = [
+      Colors.grey,
+      Colors.grey,
+      Colors.grey,
+      Colors.grey,
+      Colors.grey
+    ];
+    randomizedEquation();
+  }
+
+  randomizedEquation() {
     var r = Random();
     List<String> mathSigns = [
       "+",
@@ -221,10 +262,15 @@ class GameController extends GetxController {
       mathSigns[rs.nextInt(3)],
       r.nextInt(9).toString()
     ];
-
-    super.onInit();
+    print(randomPattern);
+    if (hardMode.value) {
+    } else {}
   }
 }
+
+
+
+
 
 
 /*

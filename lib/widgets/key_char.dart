@@ -15,18 +15,23 @@ class KeyChar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    //double height = MediaQuery.of(context).size.height;
+    double height = MediaQuery.of(context).size.height;
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(width < 640 ? 8 : 28),
+        padding: EdgeInsets.all(width < 640 ? 12 : 28),
         margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: fillColor,
-          boxShadow: const [
-            BoxShadow(
+          boxShadow:  [
+          const  BoxShadow(
               offset: Offset(1, 2),
-              color: Colors.white,
+              color: Colors.transparent,
+              spreadRadius: 2,
+              blurRadius: 1,
+            ), BoxShadow(
+              offset:const Offset(1, 2),
+              color: Colors.white.withOpacity(0.1),
               spreadRadius: 2,
               blurRadius: 1,
             ),
