@@ -262,7 +262,7 @@ class GameController extends GetxController {
       mathSigns[rs.nextInt(3)],
       r.nextInt(9).toString()
     ];
-    print(randomPattern);
+    //print(randomPattern);
     if (hardMode.value) {
     } else {}
   }

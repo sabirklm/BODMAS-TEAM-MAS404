@@ -512,12 +512,6 @@ class _HomePageState extends State<HomePage> {
                                               round: 3,
                                               playedAt: DateTime.now(),
                                               isWon: false));
-                                          String originalPattern = "";
-                                          for (int i = 0;
-                                              i < myPattern.length;
-                                              i++) {
-                                            originalPattern += myPattern[i];
-                                          }
                                         }
                                       }
                                       if (gameController.isGameOwn.value) {
