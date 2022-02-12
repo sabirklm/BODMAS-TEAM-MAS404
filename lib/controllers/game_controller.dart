@@ -133,7 +133,7 @@ class GameController extends GetxController {
       }
       for (int i = 0; i < publicPattern.length; i++) {
         for (int j = 0; j < gamePattern.length; j++) {
-          if (publicPattern[i] == gamePattern[j] && isOnceCalculated[j]) {
+          if (publicPattern[i] == gamePattern[j] && !isOnceCalculated[j]) {
             round1Color[i] = Colors.orange;
           } else if (publicPattern[i] == gamePattern[j] && i == j) {
             round1Color[i] = Colors.green;
