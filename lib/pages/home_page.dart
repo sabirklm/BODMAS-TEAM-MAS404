@@ -584,7 +584,7 @@ class _HomePageState extends State<HomePage> {
                                                         Navigator.pop(context);
                                                       },
                                                       name:
-                                                          "Oops!!😕Try again😕",
+                                                          "Oops!!😕\nTry again",
                                                     )
                                                   ],
                                                 ));
