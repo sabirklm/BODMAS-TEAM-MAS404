@@ -37,7 +37,7 @@ class RulesPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Text("Hi Tanmoy, Sunetra"),
+             
               Align(
                 alignment: Alignment.topLeft,
                 child: RichText(
