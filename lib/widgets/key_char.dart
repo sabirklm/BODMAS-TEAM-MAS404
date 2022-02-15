@@ -8,7 +8,7 @@ class KeyChar extends StatelessWidget {
   const KeyChar({
     Key? key,
     required this.charWidget,
-    this.fillColor = Colors.grey,
+    this.fillColor = Colors.transparent,
     this.onTap,
   }) : super(key: key);
 
@@ -22,7 +22,9 @@ class KeyChar extends StatelessWidget {
         padding: EdgeInsets.all(width < 640 ? 12 : 28),
         margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: fillColor,
+          color: fillColor,  border: Border.all(
+          width: 1,
+        ),
           boxShadow:  [
           const  BoxShadow(
               offset: Offset(1, 2),

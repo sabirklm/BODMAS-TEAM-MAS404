@@ -209,8 +209,8 @@ class _HomePageState extends State<HomePage> {
                               : (width < 434)
                                   ? width * 0.99
                                   : width * 0.8,
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.5),
+                          decoration:const BoxDecoration(
+                            //color: Colors.black.withOpacity(0.5),
                           ),
                           child: Column(
                             children: [
