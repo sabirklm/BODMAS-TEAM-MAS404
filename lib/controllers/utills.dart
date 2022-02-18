@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '/data/game_status.dart';
 import 'package:math_expressions/math_expressions.dart';
 
@@ -24,4 +26,14 @@ gamePlayingStatus(GameStatus gameStatus) {
   //   "isWon": gameStatus.isWon,
   //   "playedAt": gameStatus.playedAt,
   // });
+}
+
+saveComment(String comment) async {
+  if (comment.trim().isNotEmpty) {
+    CollectionReference comRef =
+        FirebaseFirestore.instance.collection('comments');
+    await comRef.add({
+      "text": comment,
+    });
+  }
 }
