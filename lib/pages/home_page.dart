@@ -403,10 +403,13 @@ class _HomePageState extends State<HomePage> {
                                         Theme.of(context).textTheme.headline6,
                                   ),
                                   onTap: () {
+                                    AnalyticsController().logGameInfo();
                                     if (gameController.isGameOwn.value) {
                                       gameController.playAgain();
                                       return;
                                     }
+                                    AnalyticsController().logGameWon(
+                                        gameController.isGameOwn.value);
                                     //
                                     // AnalyticsController().logGameInfo();
                                     var myPattern =
@@ -428,8 +431,8 @@ class _HomePageState extends State<HomePage> {
                                       if (convertExpression(
                                               gameController.randomPattern) !=
                                           convertExpression(userPattern)) {
-                                        Get.snackbar("Result Mismatch",
-                                            "Result doesnt match. Please check once again.");
+                                        Get.snackbar("Result mismatch",
+                                            "Result doesn't match. Please check once again.");
 
                                         return;
                                       }
@@ -623,8 +626,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: const EdgeInsets.all(8),
                                 margin: const EdgeInsets.all(2),
                                 decoration: BoxDecoration(
-                                  color: Theme.of(context)
-                                      .focusColor,
+                                  color: Theme.of(context).focusColor,
                                 ),
                                 child: Text(
                                   commentsController.comments[index],

@@ -1,5 +1,6 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:team_mas404/controllers/controllers.dart';
 
 class CongratulationPage extends StatelessWidget {
   final ConfettiController confAnimationContriller;
@@ -12,6 +13,7 @@ class CongratulationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AnalyticsController().logScreen("Congratulation");
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,

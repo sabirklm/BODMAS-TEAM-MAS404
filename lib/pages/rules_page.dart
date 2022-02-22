@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:team_mas404/controllers/controllers.dart';
 import '/widgets/widgets.dart';
 
 class RulesPage extends StatelessWidget {
@@ -10,6 +11,7 @@ class RulesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AnalyticsController().logScreen("Rules");
     double width = MediaQuery.of(context).size.width;
     // double height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -37,7 +39,6 @@ class RulesPage extends StatelessWidget {
                   ),
                 ),
               ),
-             
               Align(
                 alignment: Alignment.topLeft,
                 child: RichText(

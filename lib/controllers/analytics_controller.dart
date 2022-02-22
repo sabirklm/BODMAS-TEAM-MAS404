@@ -7,4 +7,14 @@ class AnalyticsController {
       "time": DateTime.now(),
     });
   }
+
+  logScreen(String screenName) {
+    analytics.setCurrentScreen(screenName: screenName);
+  }
+
+  logGameWon(bool isWon) {
+    analytics.logEvent(name: 'game_winings', parameters: {
+      "isWon": isWon,
+    });
+  }
 }
