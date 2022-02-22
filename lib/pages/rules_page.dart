@@ -189,7 +189,7 @@ class RulesPage extends StatelessWidget {
                     fillColor: Colors.green,
                   ),
                   DisplayedChar(
-                    char: "1",
+                    char: "6",
                     fillColor: Colors.green,
                   ),
                 ],
