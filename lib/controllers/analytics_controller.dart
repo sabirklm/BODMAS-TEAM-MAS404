@@ -9,7 +9,7 @@ class AnalyticsController {
   }
 
   logScreen(String screenName) {
-    analytics.setCurrentScreen(screenName: screenName);
+    analytics.logScreenView(screenName: screenName);
   }
 
   logGameWon(bool isWon) {

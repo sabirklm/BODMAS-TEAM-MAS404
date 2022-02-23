@@ -14,6 +14,8 @@ class CongratulationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AnalyticsController().logScreen("Congratulation");
+    AnalyticsController().logGameWon(true);
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
