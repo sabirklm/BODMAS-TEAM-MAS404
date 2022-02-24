@@ -14,7 +14,15 @@ class AnalyticsController {
 
   logGameWon(bool isWon) {
     analytics.logEvent(name: 'game_winings', parameters: {
-      "isWon": isWon,
+      "isWon": isWon.toString(),
+    });
+  }
+
+  logThemeChoice(
+      {String isDarkTheme = "yes", String isLightTheme = "no"}) async {
+    await analytics.logEvent(name: 'theme', parameters: {
+      "dark": isDarkTheme,
+      "light": isLightTheme,
     });
   }
 }

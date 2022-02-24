@@ -57,3 +57,20 @@ class CongratulationPage extends StatelessWidget {
     );
   }
 }
+/*
+
+
+
+ gameController.showRules.value
+            ? Dialog(
+                child: AspectRatio(
+                  aspectRatio: width < height ? 3 / 5 : 15 / 13,
+                  child: RulesPage(
+                    onPressed: () {
+                      gameController.showRules.value = false;
+                    },
+                  ),
+                ),
+              )
+            : 
+ */
